@@ -1,6 +1,8 @@
 target/
 *.class
 *.log
+# Le journal d'exécution est conservé comme preuve de fonctionnement
+!docs/execution.log
 
 # IDE
 .idea/

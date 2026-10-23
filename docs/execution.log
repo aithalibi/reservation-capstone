@@ -1,0 +1,873 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.example:reservation-capstone >------------------
+[INFO] Building reservation-capstone 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ reservation-capstone ---
+[INFO] Deleting C:\Users\dell\reservation-capstone\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ reservation-capstone ---
+[INFO] Copying 3 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ reservation-capstone ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 8 source files with javac [debug target 1.8] to target\classes
+[WARNING] bootstrap class path not set in conjunction with -source 8
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ reservation-capstone ---
+[INFO] skip non existing resourceDirectory C:\Users\dell\reservation-capstone\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ reservation-capstone ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug target 1.8] to target\test-classes
+[WARNING] bootstrap class path not set in conjunction with -source 8
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ reservation-capstone ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.example.test.ReservationTest
+mvn.cmd : oct. 23, 2026 2:13:59 PM org.hibernate.jpa.internal.util.LogHelper 
+logPersistenceUnitInformation
+Au caractère C:\Users\DELL\AppData\Local\Temp\run-capstone.ps1:7 : 1
++ & $mvn -B -o -f "$proj\pom.xml" clean test exec:java > $out 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (oct. 23, 2026 2...UnitInformation 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+INFO: HHH000204: Processing PersistenceUnitInfo [name: ReservationPU]
+oct. 23, 2026 2:13:59 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate ORM core version 5.4.32.Final
+oct. 23, 2026 2:13:59 PM 
+org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+oct. 23, 2026 2:13:59 PM org.hibernate.engine.jdbc.connections.internal.DriverM
+anagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for 
+production use!)
+oct. 23, 2026 2:13:59 PM org.hibernate.engine.jdbc.connections.internal.DriverM
+anagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [org.h2.Driver] at URL 
+[jdbc:h2:mem:reservationdb;DB_CLOSE_DELAY=-1]
+oct. 23, 2026 2:13:59 PM org.hibernate.engine.jdbc.connections.internal.DriverM
+anagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {password=****, user=sa}
+oct. 23, 2026 2:13:59 PM org.hibernate.engine.jdbc.connections.internal.DriverM
+anagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+oct. 23, 2026 2:13:59 PM org.hibernate.engine.jdbc.connections.internal.DriverM
+anagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+oct. 23, 2026 2:13:59 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further 
+details.
+oct. 23, 2026 2:13:59 PM 
+org.hibernate.cache.jcache.internal.JCacheRegionFactory createCache
+WARN: HHH90001006: Missing cache[default-update-timestamps-region] was created 
+on-the-fly. The created cache will use a provider-specific default 
+configuration: make sure you defined one. You can disable this warning by 
+setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+oct. 23, 2026 2:13:59 PM 
+org.hibernate.cache.jcache.internal.JCacheRegionFactory createCache
+WARN: HHH90001006: Missing cache[default-query-results-region] was created 
+on-the-fly. The created cache will use a provider-specific default 
+configuration: make sure you defined one. You can disable this warning by 
+setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+Hibernate: 
+    
+oct. 23, 2026 2:14:00 PM org.hibernate.resource.transaction.backend.jdbc.intern
+al.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+    drop table if exists reservations CASCADE 
+Hibernate: 
+    
+    drop table if exists salles CASCADE 
+Hibernate: 
+    
+    drop table if exists utilisateurs CASCADE 
+Hibernate: 
+    
+    create table reservations (
+       id bigint generated by default as identity,
+        dateDebut timestamp not null,
+        dateFin timestamp not null,
+        version integer not null,
+        salle_id bigint not null,
+        utilisateur_id bigint not null,
+        primary key (id)
+    )
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate
+.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnec
+tionAccess@447521e] for (non-JTA) DDL execution was not in auto-commit mode; 
+the Connection 'local transaction' will be committed and the Connection will 
+be set into auto-commit mode.
+oct. 23, 2026 2:14:00 PM org.hibernate.resource.transaction.backend.jdbc.intern
+al.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate
+.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnec
+tionAccess@30508066] for (non-JTA) DDL execution was not in auto-commit mode; 
+the Connection 'local transaction' will be committed and the Connection will 
+be set into auto-commit mode.
+Hibernate: 
+    
+    create table salles (
+       id bigint generated by default as identity,
+        capacite integer not null,
+        description varchar(255),
+        nom varchar(255) not null,
+        version integer not null,
+        primary key (id)
+    )
+Hibernate: 
+    
+    create table utilisateurs (
+       id bigint generated by default as identity,
+        email varchar(255) not null,
+        nom varchar(255) not null,
+        version integer not null,
+        primary key (id)
+    )
+Hibernate: 
+    
+    alter table salles 
+       add constraint UK_baqiyi6ypsidfq05qu8l9o2w9 unique (nom)
+Hibernate: 
+    
+    alter table utilisateurs 
+       add constraint UK_6ldvumu3hqvnmmxy1b6lsxwqy unique (email)
+Hibernate: 
+    
+    alter table reservations 
+       add constraint FK11c2598mdsm9g395pl5ubdvi3 
+       foreign key (salle_id) 
+       references salles
+Hibernate: 
+    
+    alter table reservations 
+       add constraint FK5jh2b3gs43v5mdq0ocumvv34p 
+       foreign key (utilisateur_id) 
+       references utilisateurs
+oct. 23, 2026 2:14:00 PM 
+org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator 
+initiateService
+INFO: HHH000490: Using JtaPlatform implementation: 
+[org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Hibernate: 
+    /* insert com.example.model.Utilisateur
+        */ insert 
+        into
+            utilisateurs
+            (id, email, nom, version) 
+        values
+            (null, ?, ?, ?)
+Hibernate: 
+    /* insert com.example.model.Salle
+        */ insert 
+        into
+            salles
+            (id, capacite, description, nom, version) 
+        values
+            (null, ?, ?, ?, ?)
+Hibernate: 
+    /* insert com.example.model.Reservation
+        */ insert 
+        into
+            reservations
+            (id, dateDebut, dateFin, salle_id, utilisateur_id, version) 
+        values
+            (null, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* delete com.example.model.Reservation */ delete 
+        from
+            reservations 
+        where
+            id=? 
+            and version=?
+Hibernate: 
+    select
+        reservatio0_.id as id1_0_0_,
+        reservatio0_.dateDebut as datedebu2_0_0_,
+        reservatio0_.dateFin as datefin3_0_0_,
+        reservatio0_.salle_id as salle_id5_0_0_,
+        reservatio0_.utilisateur_id as utilisat6_0_0_,
+        reservatio0_.version as version4_0_0_ 
+    from
+        reservations reservatio0_ 
+    where
+        reservatio0_.id=?
+oct. 23, 2026 2:14:00 PM 
+org.hibernate.engine.internal.StatisticalLoggingSessionEventListener end
+INFO: Session Metrics {
+    47100 nanoseconds spent acquiring 3 JDBC connections;
+    121800 nanoseconds spent releasing 3 JDBC connections;
+    1047100 nanoseconds spent preparing 5 JDBC statements;
+    2679800 nanoseconds spent executing 5 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    6658400 nanoseconds spent performing 8 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    38700 nanoseconds spent performing 1 L2C misses;
+    8750600 nanoseconds spent executing 2 flushes (flushing a total of 6 
+entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 
+entities and 0 collections)
+}
+Hibernate: 
+    /* insert com.example.model.Utilisateur
+        */ insert 
+        into
+            utilisateurs
+            (id, email, nom, version) 
+        values
+            (null, ?, ?, ?)
+Hibernate: 
+    /* insert com.example.model.Salle
+        */ insert 
+        into
+            salles
+            (id, capacite, description, nom, version) 
+        values
+            (null, ?, ?, ?, ?)
+Hibernate: 
+    /* insert com.example.model.Reservation
+        */ insert 
+        into
+            reservations
+            (id, dateDebut, dateFin, salle_id, utilisateur_id, version) 
+        values
+            (null, ?, ?, ?, ?, ?)
+oct. 23, 2026 2:14:00 PM 
+org.hibernate.engine.internal.StatisticalLoggingSessionEventListener end
+INFO: Session Metrics {
+    16300 nanoseconds spent acquiring 1 JDBC connections;
+    41000 nanoseconds spent releasing 1 JDBC connections;
+    58800 nanoseconds spent preparing 3 JDBC statements;
+    495700 nanoseconds spent executing 3 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    888300 nanoseconds spent performing 6 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    245900 nanoseconds spent executing 1 flushes (flushing a total of 3 
+entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 
+entities and 0 collections)
+}
+Hibernate: 
+    /* insert com.example.model.Utilisateur
+        */ insert 
+        into
+            utilisateurs
+            (id, email, nom, version) 
+        values
+            (null, ?, ?, ?)
+Hibernate: 
+    /* insert com.example.model.Salle
+        */ insert 
+        into
+            salles
+            (id, capacite, description, nom, version) 
+        values
+            (null, ?, ?, ?, ?)
+Hibernate: 
+    /* insert com.example.model.Reservation
+        */ insert 
+        into
+            reservations
+            (id, dateDebut, dateFin, salle_id, utilisateur_id, version) 
+        values
+            (null, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* update
+        com.example.model.Reservation */ update
+            reservations 
+        set
+            dateDebut=?,
+            dateFin=?,
+            salle_id=?,
+            utilisateur_id=?,
+            version=? 
+        where
+            id=? 
+            and version=?
+Hibernate: 
+    select
+        reservatio0_.id as id1_0_0_,
+        reservatio0_.dateDebut as datedebu2_0_0_,
+        reservatio0_.dateFin as datefin3_0_0_,
+        reservatio0_.salle_id as salle_id5_0_0_,
+        reservatio0_.utilisateur_id as utilisat6_0_0_,
+        reservatio0_.version as version4_0_0_ 
+    from
+        reservations reservatio0_ 
+    where
+        reservatio0_.id=?
+oct. 23, 2026 2:14:00 PM 
+org.hibernate.engine.internal.StatisticalLoggingSessionEventListener end
+INFO: Session Metrics {
+    32000 nanoseconds spent acquiring 3 JDBC connections;
+    153000 nanoseconds spent releasing 3 JDBC connections;
+    529500 nanoseconds spent preparing 5 JDBC statements;
+    814100 nanoseconds spent executing 5 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    1708500 nanoseconds spent performing 11 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    27400 nanoseconds spent performing 1 L2C misses;
+    2684800 nanoseconds spent executing 2 flushes (flushing a total of 6 
+entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 
+entities and 0 collections)
+}
+oct. 23, 2026 2:14:00 PM 
+org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl 
+perform
+INFO: HHH000477: Starting delayed evictData of schema as part of 
+SessionFactory shut-down'
+Hibernate: 
+    
+    drop table if exists reservations CASCADE 
+oct. 23, 2026 2:14:00 PM org.hibernate.resource.transaction.backend.jdbc.intern
+al.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate
+.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnec
+tionAccess@656ec00d] for (non-JTA) DDL execution was not in auto-commit mode; 
+the Connection 'local transaction' will be committed and the Connection will 
+be set into auto-commit mode.
+Hibernate: 
+    
+    drop table if exists salles CASCADE 
+Hibernate: 
+    
+    drop table if exists utilisateurs CASCADE 
+oct. 23, 2026 2:14:00 PM org.hibernate.engine.jdbc.connections.internal.DriverM
+anagerConnectionProviderImpl$PoolState stop
+INFO: HHH10001008: Cleaning up connection pool 
+[jdbc:h2:mem:reservationdb;DB_CLOSE_DELAY=-1]
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.270 s -- in com.example.test.ReservationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- exec:3.1.0:java (default-cli) @ reservation-capstone ---
+oct. 23, 2026 2:14:00 PM org.hibernate.jpa.internal.util.LogHelper 
+logPersistenceUnitInformation
+INFO: HHH000204: Processing PersistenceUnitInfo [name: ReservationPU]
+oct. 23, 2026 2:14:00 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate ORM core version 5.4.32.Final
+oct. 23, 2026 2:14:00 PM 
+org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+oct. 23, 2026 2:14:00 PM org.hibernate.engine.jdbc.connections.internal.DriverM
+anagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for 
+production use!)
+oct. 23, 2026 2:14:00 PM org.hibernate.engine.jdbc.connections.internal.DriverM
+anagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [org.h2.Driver] at URL 
+[jdbc:h2:mem:reservationdb;DB_CLOSE_DELAY=-1]
+oct. 23, 2026 2:14:00 PM org.hibernate.engine.jdbc.connections.internal.DriverM
+anagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {password=****, user=sa}
+oct. 23, 2026 2:14:00 PM org.hibernate.engine.jdbc.connections.internal.DriverM
+anagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+oct. 23, 2026 2:14:00 PM org.hibernate.engine.jdbc.connections.internal.DriverM
+anagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+oct. 23, 2026 2:14:00 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further 
+details.
+oct. 23, 2026 2:14:01 PM 
+org.hibernate.cache.jcache.internal.JCacheRegionFactory createCache
+WARN: HHH90001006: Missing cache[default-update-timestamps-region] was created 
+on-the-fly. The created cache will use a provider-specific default 
+configuration: make sure you defined one. You can disable this warning by 
+setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+oct. 23, 2026 2:14:01 PM 
+org.hibernate.cache.jcache.internal.JCacheRegionFactory createCache
+WARN: HHH90001006: Missing cache[default-query-results-region] was created 
+on-the-fly. The created cache will use a provider-specific default 
+configuration: make sure you defined one. You can disable this warning by 
+setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+Hibernate: 
+    
+    drop table if exists reservations CASCADE 
+oct. 23, 2026 2:14:01 PM org.hibernate.resource.transaction.backend.jdbc.intern
+al.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate
+.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnec
+tionAccess@408eb1fc] for (non-JTA) DDL execution was not in auto-commit mode; 
+the Connection 'local transaction' will be committed and the Connection will 
+be set into auto-commit mode.
+Hibernate: 
+    
+    drop table if exists salles CASCADE 
+Hibernate: 
+    
+    drop table if exists utilisateurs CASCADE 
+Hibernate: 
+    
+    create table reservations (
+       id bigint generated by default as identity,
+        dateDebut timestamp not null,
+        dateFin timestamp not null,
+        version integer not null,
+        salle_id bigint not null,
+        utilisateur_id bigint not null,
+        primary key (id)
+    )
+oct. 23, 2026 2:14:01 PM org.hibernate.resource.transaction.backend.jdbc.intern
+al.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate
+.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnec
+tionAccess@5973a999] for (non-JTA) DDL execution was not in auto-commit mode; 
+the Connection 'local transaction' will be committed and the Connection will 
+be set into auto-commit mode.
+Hibernate: 
+    
+    create table salles (
+       id bigint generated by default as identity,
+        capacite integer not null,
+        description varchar(255),
+        nom varchar(255) not null,
+        version integer not null,
+        primary key (id)
+    )
+Hibernate: 
+    
+    create table utilisateurs (
+       id bigint generated by default as identity,
+        email varchar(255) not null,
+        nom varchar(255) not null,
+        version integer not null,
+        primary key (id)
+    )
+Hibernate: 
+    
+    alter table salles 
+       add constraint UK_baqiyi6ypsidfq05qu8l9o2w9 unique (nom)
+Hibernate: 
+    
+    alter table utilisateurs 
+       add constraint UK_6ldvumu3hqvnmmxy1b6lsxwqy unique (email)
+Hibernate: 
+    
+    alter table reservations 
+       add constraint FK11c2598mdsm9g395pl5ubdvi3 
+       foreign key (salle_id) 
+       references salles
+Hibernate: 
+    
+    alter table reservations 
+       add constraint FK5jh2b3gs43v5mdq0ocumvv34p 
+       foreign key (utilisateur_id) 
+       references utilisateurs
+oct. 23, 2026 2:14:01 PM 
+org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator 
+initiateService
+INFO: HHH000490: Using JtaPlatform implementation: 
+[org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Hibernate: 
+    /* insert com.example.model.Utilisateur
+        */ insert 
+        into
+            utilisateurs
+            (id, email, nom, version) 
+        values
+            (null, ?, ?, ?)
+Hibernate: 
+    /* insert com.example.model.Utilisateur
+        */ insert 
+        into
+            utilisateurs
+            (id, email, nom, version) 
+        values
+            (null, ?, ?, ?)
+Hibernate: 
+    /* insert com.example.model.Utilisateur
+        */ insert 
+        into
+            utilisateurs
+            (id, email, nom, version) 
+        values
+            (null, ?, ?, ?)
+Hibernate: 
+    /* insert com.example.model.Salle
+        */ insert 
+        into
+            salles
+            (id, capacite, description, nom, version) 
+        values
+            (null, ?, ?, ?, ?)
+Hibernate: 
+    /* insert com.example.model.Salle
+        */ insert 
+        into
+            salles
+            (id, capacite, description, nom, version) 
+        values
+            (null, ?, ?, ?, ?)
+Hibernate: 
+    /* insert com.example.model.Salle
+        */ insert 
+        into
+            salles
+            (id, capacite, description, nom, version) 
+        values
+            (null, ?, ?, ?, ?)
+Hibernate: 
+    /* insert com.example.model.Reservation
+        */ insert 
+        into
+            reservations
+            (id, dateDebut, dateFin, salle_id, utilisateur_id, version) 
+        values
+            (null, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* insert com.example.model.Reservation
+        */ insert 
+        into
+            reservations
+            (id, dateDebut, dateFin, salle_id, utilisateur_id, version) 
+        values
+            (null, ?, ?, ?, ?, ?)
+Hibernate: 
+    /* insert com.example.model.Reservation
+        */ insert 
+        into
+            reservations
+            (id, dateDebut, dateFin, salle_id, utilisateur_id, version) 
+        values
+            (null, ?, ?, ?, ?, ?)
+oct. 23, 2026 2:14:01 PM com.example.util.DataInitializer initData
+INFO: Jeu de données initialisé : 3 utilisateurs, 3 salles, 3 réservations.
+
+=== MIGRATION DE BASE DE DONNEES ===
+oct. 23, 2026 2:14:01 PM com.example.util.MigrationExecutor executeMigration
+INFO: Migration appliquée avec succès : db/migration/v2_0_add_description.sql
+Migration v2_0_add_description.sql appliquée.
+
+=== SCENARIOS DE TEST ===
+Hibernate: 
+    /* SELECT
+        COUNT(r) 
+    FROM
+        Reservation r */ select
+            count(reservatio0_.id) as col_0_0_ 
+        from
+            reservations reservatio0_
+Réservations présentes en base : 3
+Hibernate: 
+    /* insert com.example.model.Utilisateur
+        */ insert 
+        into
+            utilisateurs
+            (id, email, nom, version) 
+        values
+            (null, ?, ?, ?)
+Hibernate: 
+    /* insert com.example.model.Reservation
+        */ insert 
+        into
+            reservations
+            (id, dateDebut, dateFin, salle_id, utilisateur_id, version) 
+        values
+            (null, ?, ?, ?, ?, ?)
+Création : réservation id=4 pour david.petit@example.com dans Salle A
+Hibernate: 
+    /* update
+        com.example.model.Reservation */ update
+            reservations 
+        set
+            dateDebut=?,
+            dateFin=?,
+            salle_id=?,
+            utilisateur_id=?,
+            version=? 
+        where
+            id=? 
+            and version=?
+Modification : nouvelle date de fin = 2026-11-02T16:14:01.660917600
+Hibernate: 
+    /* delete com.example.model.Reservation */ delete 
+        from
+            reservations 
+        where
+            id=? 
+            and version=?
+Suppression : réservation id=4 supprimée.
+
+=== REQUETES JPQL ET CRITERIA API ===
+-- Requête JPQL : réservations de Salle A à venir --
+Hibernate: 
+    /* SELECT
+        r 
+    FROM
+        Reservation r 
+    WHERE
+        r.salle.nom = :nomSalle 
+        AND r.dateDebut > :date */ select
+            reservatio0_.id as id1_0_,
+            reservatio0_.dateDebut as datedebu2_0_,
+            reservatio0_.dateFin as datefin3_0_,
+            reservatio0_.salle_id as salle_id5_0_,
+            reservatio0_.utilisateur_id as utilisat6_0_,
+            reservatio0_.version as version4_0_ 
+        from
+            reservations reservatio0_ cross 
+        join
+            salles salle1_ 
+        where
+            reservatio0_.salle_id=salle1_.id 
+            and salle1_.nom=? 
+            and reservatio0_.dateDebut>?
+   Reservation{id=1, salle=Salle A, utilisateur=alice.dupont@example.com, dateDebut=2026-10-24T14:14:01.586749900, dateFin=2026-10-24T16:14:01.586749900}
+-- Requête JPQL relue à l'identique (cache de requêtes) --
+Hibernate: 
+    /* SELECT
+        r 
+    FROM
+        Reservation r 
+    WHERE
+        r.salle.nom = :nomSalle 
+        AND r.dateDebut > :date */ select
+            reservatio0_.id as id1_0_,
+            reservatio0_.dateDebut as datedebu2_0_,
+            reservatio0_.dateFin as datefin3_0_,
+            reservatio0_.salle_id as salle_id5_0_,
+            reservatio0_.utilisateur_id as utilisat6_0_,
+            reservatio0_.version as version4_0_ 
+        from
+            reservations reservatio0_ cross 
+        join
+            salles salle1_ 
+        where
+            reservatio0_.salle_id=salle1_.id 
+            and salle1_.nom=? 
+            and reservatio0_.dateDebut>?
+Hibernate: 
+    select
+        salle0_.id as id1_1_0_,
+        salle0_.capacite as capacite2_1_0_,
+        salle0_.description as descript3_1_0_,
+        salle0_.nom as nom4_1_0_,
+        salle0_.version as version5_1_0_ 
+    from
+        salles salle0_ 
+    where
+        salle0_.id=?
+Hibernate: 
+    select
+        utilisateu0_.id as id1_2_0_,
+        utilisateu0_.email as email2_2_0_,
+        utilisateu0_.nom as nom3_2_0_,
+        utilisateu0_.version as version4_2_0_ 
+    from
+        utilisateurs utilisateu0_ 
+    where
+        utilisateu0_.id=?
+   Reservation{id=1, salle=Salle A, utilisateur=alice.dupont@example.com, dateDebut=2026-10-24T14:14:01.586750, dateFin=2026-10-24T16:14:01.586750}
+-- Requête Criteria API : réservations de Salle A à venir --
+Hibernate: 
+    /* select
+        generatedAlias0 
+    from
+        Reservation as generatedAlias0 
+    where
+        (
+            generatedAlias0.salle.nom=:param0 
+        ) 
+        and (
+            generatedAlias0.dateDebut>:param1 
+        ) */ select
+            reservatio0_.id as id1_0_,
+            reservatio0_.dateDebut as datedebu2_0_,
+            reservatio0_.dateFin as datefin3_0_,
+            reservatio0_.salle_id as salle_id5_0_,
+            reservatio0_.utilisateur_id as utilisat6_0_,
+            reservatio0_.version as version4_0_ 
+        from
+            reservations reservatio0_ cross 
+        join
+            salles salle1_ 
+        where
+            reservatio0_.salle_id=salle1_.id 
+            and salle1_.nom=? 
+            and reservatio0_.dateDebut>?
+Hibernate: 
+    select
+        salle0_.id as id1_1_0_,
+        salle0_.capacite as capacite2_1_0_,
+        salle0_.description as descript3_1_0_,
+        salle0_.nom as nom4_1_0_,
+        salle0_.version as version5_1_0_ 
+    from
+        salles salle0_ 
+    where
+        salle0_.id=?
+Hibernate: 
+    select
+        utilisateu0_.id as id1_2_0_,
+        utilisateu0_.email as email2_2_0_,
+        utilisateu0_.nom as nom3_2_0_,
+        utilisateu0_.version as version4_2_0_ 
+    from
+        utilisateurs utilisateu0_ 
+    where
+        utilisateu0_.id=?
+   Reservation{id=1, salle=Salle A, utilisateur=alice.dupont@example.com, dateDebut=2026-10-24T14:14:01.586750, dateFin=2026-10-24T16:14:01.586750}
+-- Deuxième lecture des mêmes entités (cache de second niveau) --
+Hibernate: 
+    /* select
+        generatedAlias0 
+    from
+        Reservation as generatedAlias0 
+    where
+        (
+            generatedAlias0.salle.nom=:param0 
+        ) 
+        and (
+            generatedAlias0.dateDebut>:param1 
+        ) */ select
+            reservatio0_.id as id1_0_,
+            reservatio0_.dateDebut as datedebu2_0_,
+            reservatio0_.dateFin as datefin3_0_,
+            reservatio0_.salle_id as salle_id5_0_,
+            reservatio0_.utilisateur_id as utilisat6_0_,
+            reservatio0_.version as version4_0_ 
+        from
+            reservations reservatio0_ cross 
+        join
+            salles salle1_ 
+        where
+            reservatio0_.salle_id=salle1_.id 
+            and salle1_.nom=? 
+            and reservatio0_.dateDebut>?
+Hibernate: 
+    select
+        salle0_.id as id1_1_0_,
+        salle0_.capacite as capacite2_1_0_,
+        salle0_.description as descript3_1_0_,
+        salle0_.nom as nom4_1_0_,
+        salle0_.version as version5_1_0_ 
+    from
+        salles salle0_ 
+    where
+        salle0_.id=?
+Hibernate: 
+    select
+        utilisateu0_.id as id1_2_0_,
+        utilisateu0_.email as email2_2_0_,
+        utilisateu0_.nom as nom3_2_0_,
+        utilisateu0_.version as version4_2_0_ 
+    from
+        utilisateurs utilisateu0_ 
+    where
+        utilisateu0_.id=?
+   Reservation{id=1, salle=Salle A, utilisateur=alice.dupont@example.com, dateDebut=2026-10-24T14:14:01.586750, dateFin=2026-10-24T16:14:01.586750}
+Hibernate: 
+    /* SELECT
+        COUNT(r) 
+    FROM
+        Reservation r */ select
+            count(reservatio0_.id) as col_0_0_ 
+        from
+            reservations reservatio0_
+Total réservations en base : 3
+
+=== CACHE DE SECOND NIVEAU ===
+Hibernate: 
+    select
+        salle0_.id as id1_1_0_,
+        salle0_.capacite as capacite2_1_0_,
+        salle0_.description as descript3_1_0_,
+        salle0_.nom as nom4_1_0_,
+        salle0_.version as version5_1_0_ 
+    from
+        salles salle0_ 
+    where
+        salle0_.id=?
+Session 1 : Salle{id=1, nom='Salle A', capacite=20}
+Session 2 : Salle{id=1, nom='Salle A', capacite=20}
+Même entité logique dans les deux sessions : true
+oct. 23, 2026 2:14:01 PM 
+org.hibernate.engine.internal.StatisticalLoggingSessionEventListener end
+INFO: Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    19200 nanoseconds spent performing 1 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities 
+and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 
+entities and 0 collections)
+}
+
+=== RAPPORT DE PERFORMANCE ===
+Requêtes exécutées : 6
+Cache de second niveau hits : 1
+Cache de second niveau misses : 7
+Cache de second niveau mises à jour : 4
+Transactions : 4
+Durée maximale d'une requête (ms) : 5
+oct. 23, 2026 2:14:01 PM 
+org.hibernate.engine.internal.StatisticalLoggingSessionEventListener end
+INFO: Session Metrics {
+    124500 nanoseconds spent acquiring 11 JDBC connections;
+    406500 nanoseconds spent releasing 11 JDBC connections;
+    3145500 nanoseconds spent preparing 26 JDBC statements;
+    4470400 nanoseconds spent executing 26 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    31052300 nanoseconds spent performing 36 L2C puts;
+    785100 nanoseconds spent performing 4 L2C hits;
+    345600 nanoseconds spent performing 9 L2C misses;
+    16205000 nanoseconds spent executing 4 flushes (flushing a total of 42 
+entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 
+entities and 0 collections)
+}
+oct. 23, 2026 2:14:01 PM 
+org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl 
+perform
+INFO: HHH000477: Starting delayed evictData of schema as part of 
+SessionFactory shut-down'
+Hibernate: 
+    
+    drop table if exists reservations CASCADE 
+oct. 23, 2026 2:14:01 PM org.hibernate.resource.transaction.backend.jdbc.intern
+al.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate
+.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnec
+tionAccess@23c91e9a] for (non-JTA) DDL execution was not in auto-commit mode; 
+the Connection 'local transaction' will be committed and the Connection will 
+be set into auto-commit mode.
+Hibernate: 
+    
+    drop table if exists salles CASCADE 
+Hibernate: 
+    
+    drop table if exists utilisateurs CASCADE 
+oct. 23, 2026 2:14:01 PM org.hibernate.engine.jdbc.connections.internal.DriverM
+anagerConnectionProviderImpl$PoolState stop
+INFO: HHH10001008: Cleaning up connection pool 
+[jdbc:h2:mem:reservationdb;DB_CLOSE_DELAY=-1]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.951 s
+[INFO] Finished at: 2026-10-23T14:14:01+02:00
+[INFO] ------------------------------------------------------------------------
